@@ -1,0 +1,36 @@
+{% extends 'converter_site/base.html' %}
+
+{% block content %}
+
+    <div class="button-group">
+        <a href="{% url 'youtube_conv_link' %}">
+        <button class="button" >Youtube download</button>
+        </a>
+
+        <p></p>
+
+        <a href="{% url 'convertation_type_choise' %}">
+        <button class="button">File conversion</button>
+        </a>
+
+        <p></p>
+
+        <a href="{% url 'pictures_convert_to_pdf_url' %}">
+        <button class="button">PDF conversion</button>
+        </a>
+
+    </div>
+
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url 'home' %}">Home</a></li>
+      </ol>
+</div>
+
+{% endblock %}

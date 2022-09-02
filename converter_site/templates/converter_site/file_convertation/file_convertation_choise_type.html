@@ -1,0 +1,46 @@
+{% extends 'converter_site/base.html' %}
+
+{% block content %}
+
+    {% csrf_token %}
+
+      <div class="button-group">
+
+               <a href="{% url 'convertation_picture_url' %}" >
+        <button class="button">Picture conversion</button>
+        </a>
+
+
+        <p></p>
+
+
+        <a href="{% url 'convertation_video_url' %}" >
+        <button class="button">Video conversion</button>
+        </a>
+
+
+        <p></p>
+
+
+        <a href="{% url 'convertation_audio_url' %}" >
+        <button class="button">Audio conversion</button>
+
+        </a>
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ol>
+</div>
+
+
+{% endblock %}
