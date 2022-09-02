@@ -1,0 +1,65 @@
+{% extends 'converter_site/base.html' %}
+
+{% block content %}
+
+<form action="{% url 'youtube_conv_link' %}" method="post" enctype="multipar t/form-data">
+                {% csrf_token %}
+
+    <div class="form-error">{{ form.non_field_errors}}</div>
+    {% if not Submit %}
+
+
+    {% for f in form %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}</label>{{f}}</p>
+    <div class="form-error"{{f.errors}}></div>
+
+          {% if type_error %}
+        <div class="form-error">{{ type_error }}</div>
+    {% endif %}
+
+
+        <button class="button-style-text" type="submit">Submit</button>
+    {% endfor %}
+
+    {% else %}
+
+<img class="img-yt" src="{{image_url}}">
+        <h1>{{ video_title }}</h1>
+        <table cellspacing="5">
+
+       <tr>
+           <td><a href="{% url 'download_video_link' %}?link={{ splited_link }}&title={{ video_title }}&rule=1">Hight resolution</a> </td>
+           <td align="center">&nbsp  {{ filesize_hight }} </td>
+               </tr>
+            <tr>
+        <td ><a href="{% url 'download_video_link' %}?link={{ splited_link }}&title={{ video_title }}&rule=2">Low resolution</a></td>
+                <td align="center">&nbsp  {{ filesize_low }} </td>
+                </tr>
+            <tr>
+            <td><a href="{% url 'download_video_link' %}?link={{ splited_link }}&title={{ video_title }}&rule=3">Audio only</a> </td>
+             <td align="center">&nbsp  {{ filesize_audio }} </td>
+        </tr>
+        </table>
+    {% endif %}
+
+
+</form>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+
+<div class="container">
+    <ol class="breadcrumb">
+       <li><a href="{% url 'home' %}">Home</a></li>
+        <li>&nbsp/&nbsp</li>
+        <li><a href="{% url 'youtube_conv_link' %}">youtube-download</a></li>
+    </ol>
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,42 @@
+{% extends 'converter_site/base.html' %}
+
+{% block content %}
+
+    <form action=" {% url 'pictures_convert_to_pdf_url' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+<p>
+    <label class="form-label"  for="id_pictures_for_pdf">Pictures for PDF</label>
+    <input type="file" name="pictures_for_pdf" multiple="" required="" id="id_pictures_for_pdf">
+
+    {% if type_error %}
+        <div class="form-error">{{ type_error }}</div>
+    {% endif %}
+
+</p>
+
+
+    <p>
+        <label class="form-label" for="id_pdf_name">PDF name</label>
+        <input type="text" name="pdf_name_output" class="form-input" maxlength="200" required="" id="id_pdf_name">
+    </p>
+
+
+<button type="submit">submit</button>
+
+
+
+    </form>
+
+{% endblock %}
+
+
+
+{% block breadcrumbs %}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url 'home' %}">Home</a></li>
+      </ol>
+</div>
+
+{% endblock %}

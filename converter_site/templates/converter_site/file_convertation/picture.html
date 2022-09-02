@@ -1,0 +1,57 @@
+{% extends 'converter_site/base.html' %}
+
+{% block content %}
+
+ <form action=" {% url 'convertation_picture_url' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+<p>
+    <label class="form-label"  for="id_file_for_convertation">File for convertation</label>
+    <input type="file" name="file_for_convertation" required="" id="id_file_for_convertation">
+
+    {% if type_error %}
+        <div class="form-error">{{ type_error }}</div>
+    {% endif %}
+
+</p>
+
+   <p>
+       <label class="form-label" for="id_to_which_type">To which type need convert file</label>
+       <select name="to_which_type" required="sssss" id="id_to_which_type">
+  <option value=""  selected="">Choice to convert. type</option>
+
+  <option value="bmp">BMP</option>
+
+  <option value="png">PNG</option>
+
+  <option value="jpg">JPG</option>
+
+  <option value="gif">GIF</option>
+
+  <option value="webp">WEBP</option>
+
+  <option value="ico">ICO</option>
+
+</select>
+
+   </p>
+
+<button type="submit">submit</button>
+
+
+
+    </form>
+    
+{% endblock %}
+
+
+{% block breadcrumbs %}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>&nbsp/&nbsp</li>
+        <li><a href="{% url 'convertation_type_choise' %}">convertation</a></li>
+    </ol>
+</div>
+
+{% endblock %}

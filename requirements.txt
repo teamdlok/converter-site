@@ -1,0 +1,16 @@
+asgiref==3.5.2
+defusedxml==0.7.1
+Django==4.0.4
+django-debug-toolbar==3.4.0
+django-view-breadcrumbs==2.2.7
+djangorestframework==3.13.1
+ffmpeg-python==0.2.0
+fpdf2==2.5.4
+future==0.18.2
+hurry==1.1
+hurry.filesize==0.9
+Pillow==9.1.1
+pytube==12.1.0
+pytz==2022.1
+sqlparse==0.4.2
+tzdata==2022.1
